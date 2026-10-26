@@ -1610,7 +1610,7 @@ const RECEIPT_CAFE = {
   address: 'Jl. Cimone Jaya No. 10, Kota Tangerang',
   phone: 'Telp: 0856-4787-1828'
 };
-const RECEIPT_CASHIER = 'Ahmad Rifai';
+const RECEIPT_CASHIER = 'Akmal Hidayat';
 
 function formatReceiptDateTime(timestamp) {
   const d = new Date(timestamp);
