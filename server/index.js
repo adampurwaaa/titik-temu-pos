@@ -62,7 +62,7 @@ io.on('connection', (socket) => {
 });
 
 // 🟢 DISESUAIKAN: Catch-all route mengarah langsung ke index.html di root directory
-app.get('*', (req, res) => {
+app.get(/'*'/, (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 });
 
