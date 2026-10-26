@@ -3,10 +3,15 @@ const mysql = require('mysql2');
 // Buat koneksi ke database MySQL
 
 const db = mysql.createConnection({
-    host: process.env.DB_HOST,       // Mengambil dari .env
-    user: process.env.DB_USER,       // Mengambil dari .env
-    password: process.env.DB_PASSWORD, // Mengambil dari .env
-    database: process.env.DB_NAME      // Mengambil dari .env
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT || 4000,
+  ssl: {
+    minVersion: 'TLSv1.2',
+    rejectUnauthorized: true
+  }
 });
 
 db.connect((err) => {
