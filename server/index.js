@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
+const path = require('path'); // Untuk mengelola path direktori
 require('dotenv').config(); // 🔴 WAJIB ADA DI BARIS PALING ATAS
 
 // Import koneksi database & controller
@@ -14,6 +15,9 @@ const server = http.createServer(app);
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// 🟢 DISESUAIKAN: Menyajikan file statis dari root directory (naik satu tingkat dari folder server)
+app.use(express.static(path.join(__dirname, '../')));
 
 // Socket.io Setup (Real-time Communication)
 const io = new Server(server, {
@@ -55,6 +59,11 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('❌ User Terputus:', socket.id);
   });
+});
+
+// 🟢 DISESUAIKAN: Catch-all route mengarah langsung ke index.html di root directory
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../index.html'));
 });
 
 // Jalankan Server
