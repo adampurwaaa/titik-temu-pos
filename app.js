@@ -1607,8 +1607,8 @@ function confirmPosTransaction() {
 const RECEIPT_CAFE = {
   name: 'TITIK TEMU',
   tagline: 'Coffee & Eatery',
-  address: 'Jl. Kemang Raya No. 45, Jakarta Selatan',
-  phone: 'Telp: 021-7890123'
+  address: 'Jl. Cimone Jaya No. 10, Kota Tangerang',
+  phone: 'Telp: 0856-4787-1828'
 };
 const RECEIPT_CASHIER = 'Ahmad Rifai';
 
